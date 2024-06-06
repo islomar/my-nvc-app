@@ -44,7 +44,12 @@ jobs:
         run: yarn install
 
       - name: 🏗️ EAS Build
-        run: cd .. && eas build --platform android --profile ${{ inputs.profile || 'testflight-android' }} --local --output build.aab --non-interactive
+        run: |
+          pwd
+          cd .. 
+          pwd
+          ls
+          eas build --platform android --profile ${{ inputs.profile || 'testflight-android' }} --local --output build.aab --non-interactive
 
       - name: ✍️ Rename Testflight bundle
         if: ${{ inputs.profile != 'production' }}
