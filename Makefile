@@ -12,6 +12,10 @@ local-setup: ## Set up the local environment (e.g. install git hooks)
 lint: ## Run the linter
 	yarn lint
 
+.PHONY: fix-lint
+fix-lint: ## Fix the linter
+	yarn lint --fix
+
 .PHONY: test
 test: ## Run all the tests
 	yarn test

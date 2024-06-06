@@ -11,6 +11,7 @@ npm install -g eas-cli
 ## Steps
 - `yarn create expo-app --template tabs`
 - `yarn add eslint-plugin-jest typescript-eslint --dev`
+- `yarn add -D prettier eslint-config-prettier eslint-plugin-prettier`
 
 
 ## Decisions taken
