@@ -4,6 +4,10 @@ help:  ## Show this help.
 	@grep -E '^\S+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s %s\n", $$1, $$2}'
 
+.PHONY: install
+install: ## Install dependencies from the lock file
+	yarn install --frozen-lockfile
+
 .PHONY: local-setup
 local-setup: ## Set up the local environment (e.g. install git hooks)
 	scripts/local-setup.sh

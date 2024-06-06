@@ -3,13 +3,14 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
+    "lint": "eslint .",
+    "start": "expo start",
     "test": "jest",
     "test-watch-all": "jest --watchAll",
-    "lint": "eslint ."
+    "typecheck": "tsc --project ./tsconfig.check.json",
+    "web": "expo start --web"
   },
   "jest": {
     "preset": "jest-expo"
