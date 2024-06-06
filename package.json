@@ -7,7 +7,7 @@
     "ios": "expo start --ios",
     "lint": "eslint .",
     "start": "expo start",
-    "test": "jest",
+    "test": "jest --forceExit",
     "test-watch-all": "jest --watchAll",
     "typecheck": "tsc --project ./tsconfig.check.json",
     "web": "expo start --web"

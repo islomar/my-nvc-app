@@ -4,8 +4,8 @@ on: [push, pull_request]
 
 jobs:
   run-linters-and-tests:
+    name: Run lint, prettier, typecheck and tests
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Yarn install
@@ -20,3 +20,6 @@ jobs:
         run: yarn prettier --check .
       - name: Type check
         run: yarn typecheck
+      - name: Run tests
+        run: |
+          NODE_ENV=test EXPO_PUBLIC_ENV=test yarn test --forceExit
