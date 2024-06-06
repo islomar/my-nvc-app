@@ -1,0 +1,16 @@
+name: Run linters and tests
+
+on: [push, pull_request]
+
+jobs:
+
+  run-linters-and-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: 📐 Static analysis
+      run: yarn lint
+    - name: Type check
+      run: yarn typecheck        
