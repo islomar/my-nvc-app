@@ -1,18 +1,15 @@
 # My NVC App (temporary name)
 - [GitHub project for the app](https://github.com/users/islomar/projects/4/views/1)
 
-`yarn create-expo-app my-nvc-app --template tabs`
-
 yarn tsc --> type check your project's files
 
-yarn add -D ts-node
 npm install -g eas-cli
 
 ## Steps
 - `yarn create expo-app --template tabs`
 - `yarn add eslint-plugin-jest typescript-eslint --dev`
 - `yarn add -D prettier eslint-config-prettier eslint-plugin-prettier`
-
+- `yarn add --dev eslint-config-universe`
 
 ## Decisions taken
 - Use of **yarn**

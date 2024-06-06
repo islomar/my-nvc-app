@@ -1,6 +1,6 @@
 // https://docs.expo.dev/guides/using-eslint/
 module.exports = {
-  extends: ['expo', 'prettier'],
+  extends: ['expo', 'prettier', 'universe/native'],
   plugins: ['jest', 'prettier'],
   env: {
     'jest/globals': true, //Needed for the global 'describe' and 'it' in jest tests
