@@ -21,11 +21,16 @@
   - $21 per user/month
   - Required for having manual approval in GH Actions Workflow IF the repository is private
   - https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments
+  - https://meijer.ws/articles/manual-approvals-in-github-actions
+  - [Limit concurrency: only publish the most recent change](https://meijer.ws/articles/manual-approvals-in-github-actions#only-publish-the-most-recent-change)
 
 ### Android on EAS
 
 - https://expo.dev/accounts/islomar/projects/my-nvc-app/builds/f8ee5b2e-d141-494c-a98f-440daf12745f
-- Duration: 12 minutes
+  - Duration: 12 minutes
+- https://meijer.ws/articles/manual-approvals-in-github-actions
+- [Manual Approval in a GitHub Actions Workflow](https://trstringer.com/github-actions-manual-approval/)
+  - You don't need the GH Enterprise!!!
 
 ## Decisions taken
 
