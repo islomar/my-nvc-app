@@ -22,7 +22,7 @@ jobs:
         run: yarn lint
       - name: ✨ Prettier check
         run: yarn prettier --check .
-      - name: Type check
+      - name: ✨ Type check
         run: yarn typecheck
       - name: 🧪 Run tests
         run: |
