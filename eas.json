@@ -17,9 +17,11 @@
       "extends": "base",
       "distribution": "internal",
       "ios": {
+        "image": "latest",
         "autoIncrement": true
       },
       "android": {
+        "image": "latest",
         "autoIncrement": true
       },
       "channel": "testflight",
