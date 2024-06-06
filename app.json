@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.islomar.mynvcapp"
+      "package": "com.islomar.mynvcapp",
+      "versionCode": 2
     },
     "web": {
       "bundler": "metro",
@@ -38,6 +39,12 @@
       "eas": {
         "projectId": "4f42f362-3642-4a4a-b7e9-2a3cdb96c107"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4f42f362-3642-4a4a-b7e9-2a3cdb96c107"
     }
   }
 }

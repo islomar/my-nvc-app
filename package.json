@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "android": "expo start --android",
-    "build:android": "eas build -p android",
+    "build:android:testflight": "eas build --platform android --profile testflight-android",
     "ios": "expo start --ios",
     "lint": "eslint .",
     "start": "expo start",
@@ -26,6 +26,7 @@
     "expo-splash-screen": "~0.27.4",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.5",
+    "expo-updates": "~0.25.16",
     "expo-web-browser": "~13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",

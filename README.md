@@ -19,12 +19,13 @@
 ### General
 
 - [Reusing GH Actions workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows): For a workflow to be reusable, the values for on must include `workflow_call:`
+- https://dev.to/medaimane/continuous-integration-and-deployment-for-react-native-apps-streamlining-development-workflow-4i04
+- [Limit concurrency: only publish the most recent change](https://meijer.ws/articles/manual-approvals-in-github-actions#only-publish-the-most-recent-change)
 - [GitHub Enterprise pricing](https://github.com/pricing)
   - $21 per user/month
   - Required for having manual approval in GH Actions Workflow IF the repository is private
   - https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments
   - https://meijer.ws/articles/manual-approvals-in-github-actions
-  - [Limit concurrency: only publish the most recent change](https://meijer.ws/articles/manual-approvals-in-github-actions#only-publish-the-most-recent-change)
 
 ### Android on EAS
 

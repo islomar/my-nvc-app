@@ -4,6 +4,10 @@ help:  ## Show this help.
 	@grep -E '^\S+:.*?## .*$$' $(firstword $(MAKEFILE_LIST)) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s %s\n", $$1, $$2}'
 
+.PHONY: build-android-testflight
+build-android-testflight: ## Build on EAS the Android version with the 'testflight' profile
+	yarn build:android:testflight
+
 .PHONY: install
 install: ## Install dependencies from the lock file
 	yarn install --frozen-lockfile
@@ -27,6 +31,9 @@ check-format: ## Fix format
 .PHONY: fix-format
 fix-format: ## Fix format
 	yarn prettier --check --write .
+
+.PHONY: fix-all
+fix-all: fix-lint fix-format ## Fix linting and format
 
 .PHONY: check-types
 check-types: ## Check types
