@@ -16,10 +16,10 @@ jobs:
           attempt_delay: 2000
       - name: 📐 Static analysis
         run: yarn lint
-      - name: Prettier check
+      - name: ✨ Prettier check
         run: yarn prettier --check .
       - name: Type check
         run: yarn typecheck
-      - name: Run tests
+      - name: 🧪 Run tests
         run: |
           NODE_ENV=test EXPO_PUBLIC_ENV=test yarn test --forceExit
