@@ -28,9 +28,13 @@ check-format: ## Fix format
 fix-format: ## Fix format
 	yarn prettier --check --write .
 
+.PHONY: check-types
+check-types: ## Check types
+	yarn typecheck
+
 .PHONY: test
 test: ## Run all the tests
 	yarn test
 
 .PHONY: pre-commit
-pre-commit: lint check-format test ## Run the pre-commit tasks
+pre-commit: lint check-format check-types test ## Run the pre-commit tasks
