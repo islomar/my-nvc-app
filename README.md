@@ -1,4 +1,5 @@
 # My NVC App (temporary name)
+
 - [GitHub project for the app](https://github.com/users/islomar/projects/4/views/1)
 
 yarn tsc --> type check your project's files
@@ -6,12 +7,14 @@ yarn tsc --> type check your project's files
 npm install -g eas-cli
 
 ## Steps
+
 - `yarn create expo-app --template tabs`
 - `yarn add eslint-plugin-jest typescript-eslint --dev`
 - `yarn add -D prettier eslint-config-prettier eslint-plugin-prettier`
 - `yarn add --dev eslint-config-universe`
 
 ## Decisions taken
+
 - Use of **yarn**
   - https://bun.sh/docs/installation
   - Faster than npm
@@ -23,10 +26,11 @@ npm install -g eas-cli
   - https://github.com/jest-community/eslint-plugin-jest/tree/main/docs/rules
 
 ## Notes about Expo
+
 - [Expo examples](https://github.com/expo/examples)
 - Expo never locks you in
 - Expo SDK
-- Native Modules (you can create your own native modules) 
+- Native Modules (you can create your own native modules)
 - Prebuild
 - Expo CLI
 - Expo Go: preview our application
@@ -38,8 +42,9 @@ npm install -g eas-cli
 - If you want to quickly create a cross-platform app from your web application: https://capacitorjs.com/
 
 ## References
+
 - [Video: Build Your App For Production EASY 💰 Expo + React Native](https://www.youtube.com/watch?v=Tx_u902DER0)
 - https://github.com/thedevenvironment/expo-router-typescript
   - Styled components
   - TypeScript
-- https://galaxies.dev/quickwin/start-react-native-app 
+- https://galaxies.dev/quickwin/start-react-native-app

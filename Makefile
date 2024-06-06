@@ -20,9 +20,17 @@ lint: ## Run the linter
 fix-lint: ## Fix the linter
 	yarn lint --fix
 
+.PHONY: check-format
+check-format: ## Fix format
+	yarn prettier --check .
+
+.PHONY: fix-format
+fix-format: ## Fix format
+	yarn prettier --check --write .
+
 .PHONY: test
 test: ## Run all the tests
 	yarn test
 
 .PHONY: pre-commit
-pre-commit: lint test ## Run the pre-commit tasks
+pre-commit: lint check-format test ## Run the pre-commit tasks
