@@ -1,7 +1,6 @@
 {
   "cli": {
-    "version": ">= 9.1.0",
-    "requireCommit": true
+    "version": ">= 9.1.0"
   },
   "build": {
     "base": {
