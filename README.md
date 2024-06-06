@@ -1,3 +1,5 @@
+[![Run linters and tests](https://github.com/islomar/my-nvc-app/actions/workflows/run-linters-and-tests.yml/badge.svg)](https://github.com/islomar/my-nvc-app/actions/workflows/run-linters-and-tests.yml)
+
 # My NVC App (temporary name)
 
 - [GitHub project for the app](https://github.com/users/islomar/projects/4/views/1)
