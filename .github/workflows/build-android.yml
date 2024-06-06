@@ -44,4 +44,4 @@ jobs:
         run: yarn install
 
       - name: 🏗️ EAS Build
-        run: yarn build:android
+        run: yarn eas build -p android --profile ${{ inputs.profile || 'testflight-android' }}
