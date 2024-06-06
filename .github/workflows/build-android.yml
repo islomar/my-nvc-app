@@ -44,4 +44,34 @@ jobs:
         run: yarn install
 
       - name: 🏗️ EAS Build
-        run: yarn eas build --platform android --profile ${{ inputs.profile || 'testflight-android' }}
+        run: yarn eas build --platform android --profile ${{ inputs.profile || 'testflight-android' }} --local --output build.aab --non-interactive
+
+      - name: ✍️ Rename Testflight bundle
+        if: ${{ inputs.profile != 'production' }}
+        run: mv build.aab build.apk
+
+      - name: ⏰ Get a timestamp
+        id: timestamp
+        uses: nanzm/get-time-action@master
+        with:
+          format: 'MM-DD-HH-mm-ss'
+
+      - name: 🚀 Upload Production Artifact
+        id: upload-artifact-production
+        if: ${{ inputs.profile == 'production' }}
+        uses: actions/upload-artifact@v4
+        with:
+          retention-days: 30
+          compression-level: 6
+          name: build-${{ steps.timestamp.outputs.time }}.aab
+          path: build.aab
+
+      - name: 🚀 Upload Testflight Artifact
+        id: upload-artifact-testflight
+        if: ${{ inputs.profile != 'production' }}
+        uses: actions/upload-artifact@v4
+        with:
+          retention-days: 30
+          compression-level: 6
+          name: build-${{ steps.timestamp.outputs.time }}.apk
+          path: build.apk
