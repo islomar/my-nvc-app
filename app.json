@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "my-nvc-app",
+    "name": "My NVC App",
     "slug": "my-nvc-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,7 +21,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.islomar.mynvcapp",
-      "versionCode": 2
+      "versionCode": 3
     },
     "web": {
       "bundler": "metro",
