@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "android": "expo start --android",
+    "build:android": "eas build -p android",
     "ios": "expo start --ios",
     "lint": "eslint .",
     "start": "expo start",
