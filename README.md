@@ -109,6 +109,6 @@ npx eas-cli build --platform all --non-interactive --no-wait  # Async action, an
   - Styled components
   - TypeScript
 - https://galaxies.dev/quickwin/start-react-native-app
-- [Android App Bundle](https://developer.android.com/guide/app-bundle): 
+- [Android App Bundle](https://developer.android.com/guide/app-bundle):
   - `.aab`, only for publishing, it cannot be installed on Android devices
   - An Android App Bundle is a publishing format that includes all your app's compiled code and resources, and defers APK generation and signing to Google Play.
