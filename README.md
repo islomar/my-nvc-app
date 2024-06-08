@@ -27,6 +27,22 @@
   - https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments
   - https://meijer.ws/articles/manual-approvals-in-github-actions
 
+## Development
+
+- Update a specific package `yarn upgrade <package-name> --latest`
+
+### Locally build for Android
+
+https://docs.expo.dev/build/setup/
+
+```shell
+npm install -g eas-cli
+eas login --sso
+eas build:configure
+eas build --platform android  # Sync action
+npx eas-cli build --platform all --non-interactive --no-wait  # Async action, an URL will be printed linking to the build's progress inthe EAS dashboard
+```
+
 ### Android on EAS
 
 - https://expo.dev/accounts/islomar/projects/my-nvc-app/builds/f8ee5b2e-d141-494c-a98f-440daf12745f
@@ -49,6 +65,25 @@
 - Maestro for the e2e tests
   - [Choosing a new framework for Mobile UI Testing for React Native](https://medium.com/@joemcguinness/choosing-a-new-framework-for-mobile-ui-testing-for-react-native-08f1cd3a4042)
   - `detox` is another option, out-of-the-box in Bitrise
+
+### Options for generating the binaries and submitting to the Stores
+
+- **Option 1: GH Actions + EAS**
+  - Suboption 1: everything declared in the GH Action pipeline
+  - Suboption 2: Webhook configured on EAS which would trigger there the build and submission (no full visibility from the pipeline?)
+  - https://docs.expo.dev/build/internal-distribution/
+- **Option 2: Bitrise**
+  - https://bitrise.io/solutions/technologies/react-native
+  - https://www.youtube.com/watch?v=larcX3I6xX0
+  - Price: 90 €/month
+- **Option 3: GH Actions + Fastlane + MacStadium**
+  - https://fastlane.tools/
+  - Fastlane handles all tedious tasks, like generating screenshots, dealing with code signing, and releasing your application.
+  - Also for beta distribution
+  - You need to install it in your own machines (e.g. with MacStadium or [your own Mac Mini](https://www.scaleway.com/en/docs/tutorials/install-github-actions-runner-mac/), etc.)
+  - Free
+- **Examples**
+  - https://github.com/bluesky-social/social-app/blob/main/.github/workflows/build-submit-android.yml
 
 ## Notes about Expo
 

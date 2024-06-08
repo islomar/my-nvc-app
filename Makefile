@@ -8,9 +8,13 @@ help:  ## Show this help.
 build-android-testflight: ## Build on EAS the Android version with the 'testflight' profile
 	yarn build:android:testflight
 
-.PHONY: install
-install: ## Install dependencies from the lock file
+.PHONY: install-from-lock
+install-from-lock: ## Install dependencies from the lock file
 	yarn install --frozen-lockfile
+
+.PHONY: install-from-package
+install-from-package: ## Install dependencies from the lock file
+	yarn install
 
 .PHONY: local-setup
 local-setup: ## Set up the local environment (e.g. install git hooks)
