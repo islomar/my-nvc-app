@@ -20,6 +20,10 @@ install-from-package: ## Install dependencies from the lock file
 local-setup: ## Set up the local environment (e.g. install git hooks)
 	scripts/local-setup.sh
 
+.PHONY: list-outdated-dependencies
+list-outdated-packages: ## List the outdated packages' dependencies
+	yarn outdated
+
 .PHONY: lint
 lint: ## Run the linter
 	yarn lint

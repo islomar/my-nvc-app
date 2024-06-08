@@ -8,7 +8,7 @@
 ## Steps
 
 - `yarn create expo-app --template tabs`
-- `yarn add eslint-plugin-jest typescript-eslint --dev`
+- `yarn add eslint@8 eslint-plugin-jest typescript-eslint --dev`
 - `yarn add -D prettier eslint-config-prettier eslint-plugin-prettier`
 - `yarn add --dev eslint-config-universe`
 - Create "Access token" in Expo and define it as "Action secret" in GitHub
@@ -65,6 +65,8 @@ npx eas-cli build --platform all --non-interactive --no-wait  # Async action, an
 - Maestro for the e2e tests
   - [Choosing a new framework for Mobile UI Testing for React Native](https://medium.com/@joemcguinness/choosing-a-new-framework-for-mobile-ui-testing-for-react-native-08f1cd3a4042)
   - `detox` is another option, out-of-the-box in Bitrise
+- Stay in ESLint 8.x for the moment
+  - https://github.com/expo/expo/issues/28144
 
 ### Options for generating the binaries and submitting to the Stores
 
