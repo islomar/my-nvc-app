@@ -96,6 +96,10 @@ npx eas-cli build --platform all --non-interactive --no-wait  # Async action, an
   - https://docs.expo.dev/workflow/using-libraries/#installing-a-third-party-library
 - If you want to quickly create a cross-platform app from your web application: https://capacitorjs.com/
 
+## Lessons learnt
+
+- You should NOT upgrade all the packages in an uncontrolled way: each Expo version recommends some specific library versions (and not higher)
+
 ## References
 
 - [Video: Build Your App For Production EASY 💰 Expo + React Native](https://www.youtube.com/watch?v=Tx_u902DER0)

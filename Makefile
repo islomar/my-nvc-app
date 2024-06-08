@@ -47,6 +47,10 @@ fix-all: fix-lint fix-format ## Fix linting and format
 check-types: ## Check types
 	yarn typecheck
 
+.PHONY: check-expo
+check-expo: ## Validate the Expo dependencies
+	npx expo-doctor
+
 .PHONY: test
 test: ## Run all the tests
 	yarn test

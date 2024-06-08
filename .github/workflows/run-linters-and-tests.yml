@@ -18,6 +18,8 @@ jobs:
           command: yarn --frozen-lockfile
           attempt_limit: 3
           attempt_delay: 2000
+      - name: 👀 Validate Expo dependencies
+        run: npx expo-doctor
       - name: 📐 Static analysis
         run: yarn lint
       - name: ✨ Prettier check
