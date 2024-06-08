@@ -57,3 +57,6 @@ test: ## Run all the tests
 
 .PHONY: pre-commit
 pre-commit: lint check-format check-types test ## Run the pre-commit tasks
+
+.PHONY: pre-push
+pre-push: check-expo ## Run the pre-push tasks
