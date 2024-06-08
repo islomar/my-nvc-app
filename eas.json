@@ -4,14 +4,17 @@
   },
   "build": {
     "base": {
-      "node": "18.18.2"
+      "node": "18.18.2",
+      "channel": "base"
     },
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "channel": "development"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "channel": "preview"
     },
     "testflight-android": {
       "extends": "base",
@@ -29,7 +32,9 @@
         "EXPO_PUBLIC_ENV": "testflight"
       }
     },
-    "production": {}
+    "production": {
+      "channel": "production"
+    }
   },
   "submit": {
     "production": {}

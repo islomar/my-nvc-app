@@ -13,6 +13,7 @@
 - `yarn add --dev eslint-config-universe`
 - Create "Access token" in Expo and define it as "Action secret" in GitHub
   - https://docs.expo.dev/eas-update/github-actions/
+- Configure [EAS Update](https://docs.expo.dev/eas-update/introduction/): it makes fixing small bugs and pushing quick fixes a snap in between app store submissions.
 
 ## Build
 
@@ -73,7 +74,10 @@ npx eas-cli build --platform all --non-interactive --no-wait  # Async action, an
 - **Option 1: GH Actions + EAS**
   - Suboption 1: everything declared in the GH Action pipeline
   - Suboption 2: Webhook configured on EAS which would trigger there the build and submission (no full visibility from the pipeline?)
+  - You can trigger a build from a GitHub PR by adding a label to the PR. The label must be in the form of `eas-build-[platform]:[profile]`
+  - https://docs.expo.dev/build/building-from-github/
   - https://docs.expo.dev/build/internal-distribution/
+  - https://docs.expo.dev/build/building-from-github/#automatic-app-stores-submission-with-eas-submit
 - **Option 2: Bitrise**
   - https://bitrise.io/solutions/technologies/react-native
   - https://www.youtube.com/watch?v=larcX3I6xX0
