@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   build:
-    name: Install and build
+    name: Install and build for android
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build on EAS
-        run: eas build --platform all --non-interactive --no-wait
+        run: eas build --platform android --non-interactive --no-wait

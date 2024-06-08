@@ -47,9 +47,18 @@ fix-all: fix-lint fix-format ## Fix linting and format
 check-types: ## Check types
 	yarn typecheck
 
+# https://docs.expo.dev/more/expo-cli/
 .PHONY: check-expo
-check-expo: ## Validate the Expo dependencies
+check-expo: ## Run the expo doctor (e.g. common issues in config files, dependencies, yarn versions, etc.)
 	npx expo-doctor
+
+.PHONY: check-expo-dependencies
+check-expo-dependencies: ## Check if the Expo dependencies are up to date
+	npx expo install --check
+
+.PHONY: fix-expo-dependencies
+fix-expo: ## Fix the Expo dependencies
+	npx expo install --fix
 
 .PHONY: test
 test: ## Run all the tests

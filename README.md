@@ -99,6 +99,8 @@ npx eas-cli build --platform all --non-interactive --no-wait  # Async action, an
 ## Lessons learnt
 
 - You should NOT upgrade all the packages in an uncontrolled way: each Expo version recommends some specific library versions (and not higher)
+- The `ios.bundleIdentifier` is required to be set in `app.json` config when running in non-interactive mode
+  - https://docs.expo.dev/submit/ios/
 
 ## References
 
@@ -107,4 +109,6 @@ npx eas-cli build --platform all --non-interactive --no-wait  # Async action, an
   - Styled components
   - TypeScript
 - https://galaxies.dev/quickwin/start-react-native-app
-- [Android App Bundle](https://developer.android.com/guide/app-bundle/faq): `.aab`, only for publishing, it cannot be installed on Android devices
+- [Android App Bundle](https://developer.android.com/guide/app-bundle): 
+  - `.aab`, only for publishing, it cannot be installed on Android devices
+  - An Android App Bundle is a publishing format that includes all your app's compiled code and resources, and defers APK generation and signing to Google Play.
