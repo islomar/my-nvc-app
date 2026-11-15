@@ -34,7 +34,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: 🪛 Setup jq
-        uses: dcarbone/install-jq-action@v2
+        uses: dcarbone/install-jq-action@v4
 
       - name: 🔨 Setup EAS
         uses: expo/expo-github-action@v8
