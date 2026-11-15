@@ -6,41 +6,41 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directory: /
-    schedule: { interval: weekly, day: monday, time: "06:00", timezone: Europe/Madrid }
+    schedule: { interval: weekly, day: monday, time: '06:00', timezone: Europe/Madrid }
     open-pull-requests-limit: 5
     # GitHub Actions supports only `default-days`.
     cooldown: { default-days: 7 }
     groups:
       actions:
-        patterns: ["*"]
+        patterns: ['*']
         update-types: [minor, patch]
 
   - package-ecosystem: npm
     directory: /
-    schedule: { interval: weekly, day: monday, time: "06:00", timezone: Europe/Madrid }
+    schedule: { interval: weekly, day: monday, time: '06:00', timezone: Europe/Madrid }
     open-pull-requests-limit: 5
     cooldown: { default-days: 7, semver-major-days: 14 }
     groups:
       npm:
-        patterns: ["*"]
+        patterns: ['*']
         update-types: [minor, patch]
     ignore:
       # Why: the Expo SDK pins these versions. Upgrade them together with
       # `npx expo install --fix` during an SDK upgrade, never one by one.
       # Revisit: never; this rule is permanent for an Expo app.
-      - dependency-name: "expo"
-      - dependency-name: "expo-*"
-      - dependency-name: "@expo/*"
-      - dependency-name: "react"
-      - dependency-name: "react-dom"
-      - dependency-name: "react-native"
-      - dependency-name: "react-native-*"
-      - dependency-name: "@react-native/*"
-      - dependency-name: "jest-expo"
+      - dependency-name: 'expo'
+      - dependency-name: 'expo-*'
+      - dependency-name: '@expo/*'
+      - dependency-name: 'react'
+      - dependency-name: 'react-dom'
+      - dependency-name: 'react-native'
+      - dependency-name: 'react-native-*'
+      - dependency-name: '@react-native/*'
+      - dependency-name: 'jest-expo'
 
   - package-ecosystem: docker
     directory: /
-    schedule: { interval: weekly, day: monday, time: "06:00", timezone: Europe/Madrid }
+    schedule: { interval: weekly, day: monday, time: '06:00', timezone: Europe/Madrid }
     open-pull-requests-limit: 5
     # Docker supports only `default-days`.
     cooldown: { default-days: 7 }
