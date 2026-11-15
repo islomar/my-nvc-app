@@ -1,0 +1,70 @@
+# Auto-merge for safe Dependabot updates, with the built-in GITHUB_TOKEN.
+#
+# Safe: patch and minor updates of versions >= 1.0, and GitHub Actions bumps.
+# Needs a human: majors, minors of 0.x versions, anything without a known update type.
+# Those PRs get the `dependencies:needs-human` label.
+#
+# Auto-merge waits for the required checks of the `main` ruleset.
+# A merge made with GITHUB_TOKEN starts no workflows on `main`: CI already ran on the PR.
+# The repository guard keeps this workflow off in repositories created from a template.
+name: Dependabot auto-merge
+
+on: pull_request
+
+permissions: {}
+
+jobs:
+  auto-merge:
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.repository == 'islomar/my-nvc-app'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - id: metadata
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
+
+      - id: decide
+        name: Classify the update
+        env:
+          DEPENDENCIES: ${{ steps.metadata.outputs.updated-dependencies-json }}
+        run: |
+          if [ -z "$DEPENDENCIES" ]; then DEPENDENCIES='[]'; fi
+          reasons=$(jq -r '
+            def major: (.prevVersion // "" | sub("^[^0-9]*"; "") | split(".")[0]);
+            if length == 0 then "no dependency metadata" else .[] |
+              if .updateType == "version-update:semver-major" then
+                "\(.dependencyName): major update \(.prevVersion) to \(.newVersion)"
+              elif .updateType == "version-update:semver-minor" and major == "0" then
+                "\(.dependencyName): 0.x minor update \(.prevVersion) to \(.newVersion)"
+              elif .updateType == "version-update:semver-minor" or .updateType == "version-update:semver-patch" then
+                empty
+              elif (.updateType // "") == "" and .packageEcosystem == "github_actions" then
+                empty
+              else
+                "\(.dependencyName): unknown update type \(.updateType // "none")"
+              end
+            end' <<<"$DEPENDENCIES")
+          if [ -n "$reasons" ]; then
+            echo "safe=false" >> "$GITHUB_OUTPUT"
+            { echo "### Needs a human"; echo; sed 's/^/- /' <<<"$reasons"; } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "safe=true" >> "$GITHUB_OUTPUT"
+            echo "### Safe update: auto-merge on" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Enable auto-merge (squash)
+        if: steps.decide.outputs.safe == 'true'
+        run: gh pr merge --auto --squash "$PR_URL"
+
+      - name: Label for a human
+        if: steps.decide.outputs.safe == 'false'
+        run: |
+          gh pr merge --disable-auto "$PR_URL" || true
+          gh pr edit "$PR_URL" --add-label "dependencies:needs-human"
