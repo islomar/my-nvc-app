@@ -1,18 +1,30 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import React from 'react';
-import { Pressable } from 'react-native';
+import { type ColorValue, Pressable } from 'react-native';
 
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 import { useColorScheme } from '@/components/useColorScheme';
 import Colors from '@/constants/Colors';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
+function TabBarIcon({
+  name,
+  color,
+}: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
+  color: ColorValue;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  // React Navigation types the color as ColorValue, which also allows null and numbers.
+  // FontAwesome accepts neither, and React Navigation passes a string at runtime.
+  return (
+    <FontAwesome
+      size={28}
+      style={{ marginBottom: -3 }}
+      name={name}
+      color={typeof color === 'number' ? undefined : (color ?? undefined)}
+    />
+  );
 }
 
 export default function TabLayout() {
